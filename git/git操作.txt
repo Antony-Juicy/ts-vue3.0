@@ -1,0 +1,114 @@
+git status  查看文件
+
+git stash save "日志信息"     git stash list    列出所有的暂存项
+
+git add -A 
+
+git commit .  -n      i (编辑)     退出   esc   ：wq
+
+git commit --amend -m "更好的提交日志"    编辑上次提交
+
+git fetch upstream    拉取 upstream 仓库代码到本地
+
+git checkout master    切换到某分支
+
+git rebase upstream/master
+
+git push origin master
+
+git checkout  分支
+
+git reflog --date=local --all | grep   切换到要查询的分支下要   查询的分支名称
+
+git checkout -b wsp 创建wsp分支 并且切换到这个分支
+
+git rebase master      将本地 master 分支最新代码合并到要提交 MR 的分支
+
+git  branch  查看本地所有分支
+
+git  branch -a  查看所有分支
+
+git  branch -d  删除的分支名称    删除本地分支 
+
+git  push origin  : 分支名字          删除远程分支
+
+git merge  分支名           合并某分支到当前分支
+
+git  pull origin   分支名    本地分支关联远程分支
+
+
+git stash   可以先储存起来。
+
+git stash list   查看之前存储的所有版本列表
+
+git stash pop [stash_id]   恢复具体某一次的版本,如果不指定stash_id，则默认h恢复最新的存储进度　
+
+
+git  remote -v  查看远程版本信息
+
+git log   查看当前历史区版本信息
+
+git  reset --hard  版本hash  
+
+// 注意 --hard 参数会抛弃当前工作区的修改
+// 使用 --soft 参数的话会回退到之前的版本，但是保留当前工作区的修改，可以重新提交
+
+
+vpn密码：TB9707231.@
+http://127.0.0.1:8885/home/user-center （开发环境）
+
+
+git config --global user.name "wangsp"
+git config --global user.email "wangsp@awcloud.com"
+
+
+
+git add --all  .   或者(git add .) 把所有文件都放在暂存区
+ 
+git commit -m "我是第一个版本"  把暂存区的内容放到历史区
+
+git remote add origin 仓库地址 例如(https://github.com/guoxiang910223/ceshi1913.git)  添加仓库地址
+
+git push -u origin master  表示把内容上传到 origin 这个地址    第二次上传git push
+
+git clone https://github.com/jquery/jquery.git   直接克隆仓库
+
+
+git reset --hard           git pull    代码库文件完全覆盖本工作版本. 
+
+git merge --abort    回滚到合并之前   git 如何解决 (master|MERGING)
+
+git config --global user.email"gabbiyabbiy9@gmail.com"
+git config --global user.name "Antony-Juicy"
+
+git pull --rebase origin master  代码合并
+
+$ git checkout --  查看冲突的分支
+
+
+
+git branch login  开辟一个 login 分支
+
+git branch   查看当前分支情况
+
+git checkout login  切换到 login 分支
+
+git branch -M main 切换到  main 分支
+
+git merge login  把 login 的内容合并到自己的分支
+  
+
+删除：git checkout master  先切换到别的分支  git branch -d login 删除 login 分支
+
+ 查看用户名
+	git config user.email 查看邮箱
+	git config --global user.name "github用户名"
+	git config --global user.email "邮箱"
+
+
+
+  # 再选择合并分支内容
+  $ git merge tmp
+
+
+  
