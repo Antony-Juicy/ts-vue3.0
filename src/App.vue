@@ -237,7 +237,7 @@ import { reactive , ref , toRefs , toRef , computed , watchEffect , watch , onMo
     const count = ref(0);
 
     const add = () => { 
-      count.value++;
+       count.value++;
     }
 
       // useMounted();  //调用声明周期函数
@@ -291,14 +291,14 @@ function useMousePosition() {
     y.value = e.pageY
   }
 
-  onMounted(() => {
-    window.addEventListener('mousemove', update)  //绑定鼠标事件
+  // onMounted(() => {
+  //   window.addEventListener('mousemove', update)  //绑定鼠标事件
 
-  })
+  // })
 
-  onUnmounted(() => {
-    window.removeEventListener('mousemove', update)  //移除鼠标事件
-  })
+  // onUnmounted(() => {
+  //   window.removeEventListener('mousemove', update)  //移除鼠标事件
+  // })
 
   return { x, y }
 }
