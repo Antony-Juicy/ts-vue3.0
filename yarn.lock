@@ -1380,6 +1380,13 @@
   optionalDependencies:
     prettier "^1.18.2"
 
+"@vue/composition-api@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.nlark.com/@vue/composition-api/download/@vue/composition-api-1.1.5.tgz#dec72423d2a41a49ddae87d107a6694b68003c33"
+  integrity sha1-3sckI9KkGkndrofRB6ZpS2gAPDM=
+  dependencies:
+    tslib "^2.3.0"
+
 "@vue/preload-webpack-plugin@^1.1.0":
   version "1.1.2"
   resolved "https://registry.nlark.com/@vue/preload-webpack-plugin/download/@vue/preload-webpack-plugin-1.1.2.tgz#ceb924b4ecb3b9c43871c7a429a02f8423e621ab"
@@ -7340,6 +7347,11 @@ ts-pnp@^1.1.6:
   version "1.2.0"
   resolved "https://registry.nlark.com/ts-pnp/download/ts-pnp-1.2.0.tgz#a500ad084b0798f1c3071af391e65912c86bca92"
   integrity sha1-pQCtCEsHmPHDBxrzkeZZEshrypI=
+
+tslib@^2.3.0:
+  version "2.3.1"
+  resolved "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
+  integrity sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE=
 
 tty-browserify@0.0.0:
   version "0.0.0"
