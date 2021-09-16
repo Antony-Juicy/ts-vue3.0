@@ -69,7 +69,7 @@ import { reactive , ref , toRefs , toRef , computed , watchEffect , watch , onMo
       //    };
 
 
- //具备数据响应式的
+      //具备数据响应式的
       // const count=ref(2);
       // const state=reactive({
       //   count
@@ -86,7 +86,7 @@ import { reactive , ref , toRefs , toRef , computed , watchEffect , watch , onMo
 
 
 
- //具备数据响应式的
+      //具备数据响应式的
       // const state=reactive({
       //   count:0
       // });
@@ -102,7 +102,7 @@ import { reactive , ref , toRefs , toRef , computed , watchEffect , watch , onMo
       // }
 
 
-
+         //  具备数据响应式的
       // const state=reactive({
       //     count:0
       //   });
