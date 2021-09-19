@@ -105,7 +105,7 @@ export default {
 
   components: {},
   mounted() {
-    //热搜列表(详细)
+      //热搜列表(详细)
     axios.get("/search/hot/detail").then((res) => {
       console.log(res, "-------------");
       this.searchHot = res.data.data;
