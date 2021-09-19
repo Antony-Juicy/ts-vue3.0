@@ -158,11 +158,11 @@ export default {
         data : this.searchHistory
       });
 
-     //调取 获取搜索结果
+      //调取 获取搜索结果
       this.getSearchList();
     },
 
-    //  调用此接口, 搜索关键词可获取搜索结果
+      //  调用此接口, 搜索关键词可获取搜索结果
     getSearchList(){
       axios.get(`/search/suggest?keywords= ${this.searchWord}`).then((res) => {
         console.log(res, "------");
@@ -171,10 +171,11 @@ export default {
       });
     },
 
-    // 历史记录
+      // 历史记录
     setStorage({ key, data }){
       // 本地存储
       window.localStorage.setItem(key, JSON.stringify(data));
+
     },
 
     //  获取 历史记录  回调函数
