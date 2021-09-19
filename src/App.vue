@@ -146,7 +146,7 @@ export default {
     handleToList(word){
        this.searchWord = word;
 
-    // // 数组，存储历史记录
+     // 数组，存储历史记录
       this.searchHistory.unshift(word);
       this.searchHistory = [...new Set(this.searchHistory)];  //过滤掉重复的子项
       if(this.searchHistory.length > 10){   //历史记录的长度限制
@@ -158,6 +158,7 @@ export default {
         data : this.searchHistory
       });
 
+     //调取 获取搜索结果
       this.getSearchList();
     },
 
