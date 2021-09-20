@@ -12,13 +12,13 @@
 // const secondNumber = 2;
 // const total = firstNumber + secondNumber;
 
-function getTotal(firstNumber: number, secondNumber: number) {
+function getTotals(firstNumber: number, secondNumber: number) {
   return firstNumber + secondNumber;
 }
 
-const total = getTotal(1, 2);
+const total = getTotals(1, 2);
 
 const obj = {
-  name: 'dell',
-  age: 18
+  name: "dell",
+  age: 18,
 };
