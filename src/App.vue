@@ -94,25 +94,17 @@ import { reactive, ref, toRefs, onMounted } from "@vue/composition-api";
 export default {
   name: "App",
   setup() {
-    const searchType = ref(1);
+    const searchType = ref(1);   // 判断显示界面
 
-    const searchWord = ref("");
+    const searchWord = ref("");   //输入的关键词
 
-    const { searchHot } = useSearchHot();
+    const { searchHot } = useSearchHot();   // 热搜榜列表
 
-    const { searchSuggest, handleToSuggest } = useSearchSuggest(
-      searchType,
-      searchWord
-    );
+    const { searchSuggest, handleToSuggest } = useSearchSuggest(searchType,searchWord);   // 热搜关键词 列表
 
-    const { searchList, handleToClose, handleToList } = useSearchList(
-      searchType,
-      searchWord,
-      function(word){ setToHistory(word); } 
+    const { searchList, handleToClose, handleToList } = useSearchList(searchType,searchWord,function(word){ setToHistory(word); } );            // 搜索关键词  详细列表                                    
 
-    );
-
-    const { searchHistory, handleToClear, setToHistory } = useSearchHistory();
+    const { searchHistory, handleToClear, setToHistory } = useSearchHistory();   // 历史记录
 
     return {
       searchType,
