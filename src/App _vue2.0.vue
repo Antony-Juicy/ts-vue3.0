@@ -6,8 +6,8 @@
         type="text"
         placeholder="搜索歌曲"
         v-model="searchWord"
-        @input="handleToSuggest"
         @keyup.13="handleToList(searchWord)"
+        @input="handleToSuggest"
       />
       <!--    隐藏清空图标  当界面不是热搜列表(详细)展示-->
       <i
@@ -63,7 +63,7 @@
         >
           <div class="search-result-word">
             <div>{{ item.name }}</div>
-            <div>{{ item.artists[0].name }} - {{ item.album.name }}</div>
+            <div>{{ item.artists[0].name }} - {{item.album.name}}</div>
           </div>
           <i class="iconfont iconbofang"></i>
         </div>
@@ -73,14 +73,14 @@
     <!-- ----------------------------搜索列表 ---------------------->
     <template v-else-if="searchType == 3">
       <div class="search-suggest ">
-        <div class="search-suggest-head ">搜索“{{ searchWord }}“</div>
+        <div class="search-suggest-head ">搜索“{{searchWord }}“</div>
         <div
           class="search-suggest-item"
           v-for="(item, index) in searchSuggest"
           :key="index"
           @click="handleToList(item.keyword)"
         >
-          <i class="iconfont iconsearch"></i>{{ item.keyword }}
+          <i class="iconfont iconsearch"></i>{{item.keyword}}
         </div>
       </div>
     </template>
@@ -89,191 +89,118 @@
 <script>
 import "@/assets/iconfont/iconfont.css";
 import axios from "axios";
-import { reactive, ref, toRefs, onMounted } from "@vue/composition-api";
 
 export default {
   name: "App",
-  setup() {
-    const searchType = ref(1);
-
-    const searchWord = ref("");
-
-    const { searchHot } = useSearchHot();
-
-    const { searchSuggest, handleToSuggest } = useSearchSuggest(
-      searchType,
-      searchWord
-    );
-
-    const { searchList, handleToClose, handleToList } = useSearchList(
-      searchType,
-      searchWord,
-      function(word){ setToHistory(word); } 
-
-    );
-
-    const { searchHistory, handleToClear, setToHistory } = useSearchHistory();
-
+  data() {
     return {
-      searchType,
-      searchWord,
-      searchHot,
-      searchSuggest,
-      handleToSuggest,
-      searchList,
-      handleToClose,
-      handleToList,
-      searchHistory,
-      handleToClear,
-      setToHistory,
+      searchType: 1,
+      searchHot: [],
+      searchWord: "",
+      searchSuggest: [],
+      searchList: [],
+      searchHistory: [],
     };
   },
-};
 
-//  热搜榜 数据
-function useSearchHot() {
-  const state = reactive({
-    searchHot: [],
-  });
-  // 热搜列表(详细)
-  onMounted(() => {
+  components: {},
+  mounted() {
+      //热搜列表(详细)
     axios.get("/search/hot/detail").then((res) => {
-      state.searchHot = res.data.data; // 赋值给 searchHot
+      console.log(res, "-------------");
+      this.searchHot = res.data.data;
     });
-  });
-  return toRefs(state); // 结构出 searchHot
-}
 
-//   搜索列表
-function useSearchSuggest(searchType, searchWord) {
-  const state = reactive({
-    searchSuggest: [],
-  });
-  const { searchSuggest } = toRefs(state); // 解构
-
-  const handleToSuggest = () => {
-    if (!searchWord.value) {
-      // 注意 value
-      searchType.value = 1;
-      return;
-    }
-    axios
-      .get(`/search/suggest?keywords=${searchWord.value}&type=mobile`)
-      .then((res) => {
-        state.searchSuggest = res.data.result.allMatch;
-        searchType.value = 3;
-      });
-  };
-  return {
-    searchSuggest,
-    handleToSuggest,
-  };
-}
-
-//   搜索结果列表
-function useSearchList(searchType, searchWord,callback) {
-  const state = reactive({
-    searchList: [],
-  });
-
-  const { searchList } = toRefs(state); // 解构
-
-  // 清空input
-  const handleToClose = () => {
-    searchWord.value = "";
-    searchType.value = 1;
-  };
-  const handleToList = (word) => {
-    // 搜索复制input  点击赋值input
-    searchWord.value = word;
-
-    callback(word)  // 回调执行  setToHistory
-
-    // const { setToHistory } = useSearchHistory();   // use函数需要在 setup() 执行才可以  
-
-    // setToHistory(word);
-
-  //   热搜榜数据 调用
-    getSearchList();
-  };
-
-  // 请求搜索数据
-  const getSearchList = () => {
-    axios.get(`/search?keywords=${searchWord.value}`).then((res) => {
-      state.searchList = res.data.result.songs;
-      searchType.value = 2;
-    });
-  };
-  return {
-    searchList,
-    handleToClose,
-    handleToList,
-  };
-}
-
-//    历史记录
-function useSearchHistory(){
-  const state = reactive({
-    searchHistory: [],
-  });
-
-  const { searchHistory } = toRefs(state); // 解构
-
-  //清空历史记录
-  const handleToClear = () => {
-    removeStorage({
+    //  调取 历史记录回调函数
+    this.getStorage({
       key: "searchHistory",
-      success: () => {
-        state.searchHistory = [];
-      },
-    });
-  };
-  
-  // 历史记录  本地存储
-  const setToHistory = (word) => {
-    state.searchHistory.unshift(word);
-    state.searchHistory = [...new Set(state.searchHistory)]; // 去重
-    if (state.searchHistory.length > 10) {
-      state.searchHistory.length = 10;
-    }
-
-    // 本地存储
-    setStorage({
-      key: "searchHistory",
-      data: state.searchHistory,
-    });
-  };
-
-  onMounted(() => {
-    getStorage({
-      key: "searchHistory",
+      
+      // 回调 拿数据赋值数组变量
       success: (data) => {
-        state.searchHistory = data;
+        this.searchHistory = data;
       },
     });
-  });
-  return {
-    searchHistory,
-    handleToClear,
-    setToHistory,
-  };
-}
+  },
+  methods: {
+    handleToSuggest() {
+      // 搜索框为空的时候展示 热搜列表(详细)   searchType: 1,
+      if (!this.searchWord) {
+        this.searchType = 1;
+        return;
+      }
 
-// 封装的本地存储函数
-function setStorage({ key, data }) {
-  window.localStorage.setItem(key, JSON.stringify(data));
-}
-    //  获取本地存储
-function getStorage({ key, success }) {
-  let data = window.localStorage.getItem(key);
-  success(JSON.parse(data));
-}
+      axios
+        .get(`/search/suggest?keywords=${this.searchWord}&type=mobile`)
+        .then((res) => {
+          this.searchSuggest = res.data.result.allMatch;
+          this.searchType = 3;
+        });
+    },
+    //  清空 input
+    handleToClose() {
+      this.searchWord = "", 
+      this.searchType = 1;
+    },
 
-    //  移除本地存储
-function removeStorage({ key, success }) {
-  window.localStorage.removeItem(key);
-  success();
-}
+    // 点击搜索列表 赋值到input  请求相关数据渲染
+    handleToList(word){
+       this.searchWord = word;
+
+     // 数组，存储历史记录
+      this.searchHistory.unshift(word);
+      this.searchHistory = [...new Set(this.searchHistory)];  //过滤掉重复的子项
+      if(this.searchHistory.length > 10){   //历史记录的长度限制
+        this.searchHistory.length = 10;
+      }
+      // // 本地存储
+      this.setStorage({
+        key : 'searchHistory',
+        data : this.searchHistory
+      });
+
+      //调取 获取搜索结果
+      this.getSearchList();
+    },
+
+      //  调用此接口, 搜索关键词可获取搜索结果
+    getSearchList(){
+      axios.get(`/search/suggest?keywords= ${this.searchWord}`).then((res) => {
+        console.log(res, "------");
+        this.searchList = res.data.result.songs; // 数据歌曲
+        this.searchType = 2;
+      });
+    },
+
+      // 历史记录
+    setStorage({ key, data }){
+      // 本地存储
+      window.localStorage.setItem(key, JSON.stringify(data));
+
+    },
+
+    //  获取 历史记录  回调函数
+    getStorage({ key, success }){
+      let data = window.localStorage.getItem(key);
+      success(JSON.parse(data));
+    },
+
+    //  删除本地存储记录  回调函数
+    removeStorage({ key, success }){
+      window.localStorage.removeItem(key);
+      success();
+    },
+
+    // 清空历史记录
+    handleToClear(){
+      this.removeStorage({
+        key: "searchHistory",
+        success: () => {
+          this.searchHistory = [];
+        },
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
