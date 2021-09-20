@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+      <helloWorld></helloWorld>
     <div class="search-input">
       <i class="iconfont iconsearch"></i>
       <input
@@ -84,14 +85,19 @@
         </div>
       </div>
     </template>
+  
+   
   </div>
 </template>
 <script>
 import "@/assets/iconfont/iconfont.css";
 import axios from "axios";
 import { reactive, ref, toRefs, onMounted } from "@vue/composition-api";
-
+import HelloWorld from './components/HelloWorld.vue'
 export default {
+   components:{
+    HelloWorld
+  },
   name: "App",
   setup() {
     const searchType = ref(1);   // 判断显示界面

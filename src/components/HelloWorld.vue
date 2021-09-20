@@ -1,28 +1,30 @@
 <template>
   <div class="hello">
-    
+    <h2>歌曲推荐</h2>
   </div>
 </template>
 
 <script lang="ts">
 /* import { Component, Prop, Vue } from 'vue-property-decorator';
 
-@Component
-export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
-} */
+// @Component
+// export default class HelloWorld extends Vue {
+//   @Prop() private msg!: string;
+// } */
 
 import { defineComponent , watchEffect } from '@vue/composition-api';
 
-import { useStore } from '../useSearchWord';
+// import { useStore } from '../useSearchWord';
 
-export default defineComponent({
+export default defineComponent({   // 兼容语法 ts 效验
   setup(){
 
-      const searchWord = useStore();
+      // const searchWord = useStore();  
 
-      watchEffect(()=>{
-        console.log( 'this is : ' + searchWord.value );
+      watchEffect(()=>{            //---------------------- 副作用
+        // console.log( 'this is : ' + searchWord.value );
+        console.log("歌曲推荐");
+        
       });
 
   }
@@ -32,18 +34,9 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h2 {
+  height: 10px;
+  text-align: center;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
