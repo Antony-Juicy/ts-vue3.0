@@ -1,4 +1,4 @@
-// readonly
+// readonly  // 只能读不能改
 // class Person {
 //   public readonly name: string;
 //   constructor(name: string) {

@@ -1,19 +1,20 @@
-class Person {
+class Personr{
   name = 'dell';
   getName() {
     return this.name;
   }
 }
 
-class Teacher extends Person {
+class Teacherw extends Personr{
   getTeacherName() {
     return 'Teacher';
   }
-  getName() {
-    return super.getName() + 'lee';
+  getName() {  // 重写修改父类 属性
+    return super.getName() + 'l123';   //super  调用修改后的 父类方法
   }
 }
 
-const teacher = new Teacher();
-console.log(teacher.getName());
-console.log(teacher.getTeacherName());
+const teacherr = new Teacherw();
+
+console.log(teacherr.getName());  //dell123
+console.log(teacherr.getTeacherName());   //Teacher

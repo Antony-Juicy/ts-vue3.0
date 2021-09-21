@@ -1,49 +1,53 @@
 // interface 和 type 相类似，但并不完全一致
 interface Person {
   // readonly name: string;
-  name: string;
-  age?: number;
-  [propName: string]: any;
-  say(): string;
-}
+  ddd: string;
+  age?: number;   // 可有可无
+  [propName: string]: any;    //可以有其他属性 字符串
+  say(): string;   // 方法 返回值是字符串
+ }
 
-interface Teacher extends Person {
+interface Teacherdd extends Person {    //继承了Person 所有属性
   teach(): string;
 }
 
-interface SayHi {
-  (word: string): string;
-}
+
 
 const getPersonName = (person: Person): void => {
-  console.log(person.name);
+  console.log(person.ddd);
 };
 
-const setPersonName = (person: Teacher, name: string): void => {
-  person.name = name;
+const setPersonName = (person:Teacherdd, ddd: string): void => {
+  person.ddd = ddd;
 };
 
 const person = {
-  name: 'dell',
+  ddd: 'dell', 
   sex: 'male',
   say() {
     return 'say hello';
   },
-  teach() {
+  teach(){
     return 'teach';
   }
+ 
 };
 
 getPersonName(person);
-setPersonName(person, 'lee');
+setPersonName(person, 'lee'); 
 
-class User implements Person {
-  name = 'dell';
+class Use implements Person {
+  ddd = 'dell';
   say() {
     return 'hello';
   }
 }
 
+
+
+interface SayHi {
+  (word: string): string;
+}
 const say: SayHi = (word: string) => {
   return word;
 };
