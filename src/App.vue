@@ -12,7 +12,8 @@
           <dog-show />
         </div>
       </template>
-      <template #fallback>
+      <!-- 异步加载处理 展示 -->
+      <template #fallback> 
         <h1>Loading !...</h1>
       </template>
     </Suspense>
@@ -30,8 +31,8 @@
 import { ref, computed, reactive, toRefs, watch, onErrorCaptured } from 'vue'
 import useMousePosition from './hooks/useMousePosition'
 import useURLLoader from './hooks/useURLLoader'
-import Modal from './components/Modal.vue'
-import AsyncShow from './components/AsyncShow.vue'
+import Modal from './components/Modal.vue'   // 插槽
+import AsyncShow from './components/AsyncShow.vue'  // 异步请求  定制化效果  Suspense
 import DogShow from './components/DogShow.vue'
 interface DataProps {
   count: number;
@@ -57,8 +58,8 @@ export default {
   },
   setup() {
     const error = ref(null)
-    onErrorCaptured((e: any) => {
-      error.value = e
+    onErrorCaptured((e: any) => {   // 异步  抓取错误
+      error.value = e    
       return true
     })
     const data: DataProps  = reactive({

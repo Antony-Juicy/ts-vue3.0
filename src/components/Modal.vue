@@ -12,10 +12,10 @@ export default defineComponent({
   props: {
     isOpen: Boolean,
   },
-  emits: {
+  emits: {  // 自定义事件 触发
     'close-modal': null
   },
-  setup(props, context) {
+  setup(props, context) { 
     const buttonClick = () => {
       context.emit('close-modal')
     }
