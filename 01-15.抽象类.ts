@@ -1,4 +1,4 @@
-// readonly  // 只能读不能改
+// readonly  // 只能读不能改 
 // class Person {
 //   public readonly name: string;
 //   constructor(name: string) {
@@ -25,7 +25,7 @@
 //   }
 // }
 
-// class Square {}
+// class Square {}  
 // class Triangle {}
 
 interface Person {
@@ -45,7 +45,7 @@ interface Driver {
   age: number;
 }
 
-const teacher = {
+const s = {
   name: 'dell',
   teachingAge: 3
 };
