@@ -46,7 +46,7 @@ git stash pop [stash_id]   »Ö¸´¾ßÌåÄ³Ò»´ÎµÄ°æ±¾,Èç¹û²»Ö¸¶¨stash_id£¬ÔòÄ¬ÈÏh»Ö¸´×
 
 git  remote -v  ²é¿´Ô¶³Ì°æ±¾ĞÅÏ¢
 
-remote remove origin    É¾³ıÔ¶³Ì¹ØÁª²Ö¿â
+git remote remove origin      É¾³ıÔ¶³Ì¹ØÁª²Ö¿â
 
 git log   ²é¿´µ±Ç°ÀúÊ·Çø°æ±¾ĞÅÏ¢
 
