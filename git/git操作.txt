@@ -48,6 +48,8 @@ git  remote -v  查看远程版本信息
 
 git remote remove origin      删除远程关联仓库
 
+git remote remove origin      删除远程关联仓库
+
 git log   查看当前历史区版本信息
 
 git  reset --hard  版本hash  
