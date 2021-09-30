@@ -35,45 +35,45 @@
             bottom: 0
           },
           xAxis: {
-            type: 'value',
+            type: 'value',   
             show: false
           },
           yAxis: {
             type: 'category',
             show: false
           },
-          series: [{
-            name: '上月平台用户数',
-            type: 'bar',
+          series: [{ 
+            name: '上月平台用户数',   // 两组数据
+            type: 'bar',  //// 柱状图
             stack: '总量',
             data: [this.userLastMonth],
-            barWidth: 10,
+            barWidth: 10, // 合并
             itemStyle: {
               color: '#45c946'
             }
           }, {
-            name: '今日平台用户数',
-            type: 'bar',
-            stack: '总量',
+            name: '今日平台用户数',  // 两组数据
+            type: 'bar',   // 柱状图
+            stack: '总量',  // 合并两个图表
             data: [this.userTodayNumber],
             itemStyle: {
               color: '#eee'
             }
           }, {
-            type: 'custom',
+            type: 'custom',  // 自定义图形
             stack: '总量',
             data: [this.userLastMonth],
-            renderItem: (params, api) => {
-              const value = api.value(0)
-              const endPoint = api.coord([value, 0])
+            renderItem: (params, api) => {  //
+              const value = api.value(0)  // 拿到data 的第一条数据
+              const endPoint = api.coord([value, 0]) // x y 坐标
 
-              return {
-                type: 'group',
-                position: endPoint,
+              return {  // 返回 绘制的图形数据
+                type: 'group',  // 两个三角形 属性  children
+                position: endPoint,  // 绘制的坐标系  
                 children: [{
                   type: 'path',
                   shape: {
-                    d: 'M1024 255.996 511.971 767.909 0 255.996 1024 255.996z',
+                    d: 'M1024 255.996 511.971 767.909 0 255.996 1024 255.996z',  // 图标 svg
                     x: -5,
                     y: -20,
                     width: 10,
@@ -81,17 +81,17 @@
                     layout: 'cover'
                   },
                   style: {
-                    fill: '#45c946'
+                    fill: '#45c946'  // 填充颜色
                   }
                 }, {
                   type: 'path',
                   shape: {
                     d: 'M0 767.909l512.029-511.913L1024 767.909 0 767.909z',
-                    x: -5,
+                    x: -5, // 三角形 方向 坐标
                     y: 10,
                     width: 10,
                     height: 10,
-                    layout: 'cover'
+                    layout: 'cover'  // 填充三角形图标
                   },
                   style: {
                     fill: '#45c946'

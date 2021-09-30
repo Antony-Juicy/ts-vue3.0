@@ -22,17 +22,17 @@
     methods: {
       getOptions() {
         return {
-          color: ['#3398DB'],
+          color: ['#3398DB'],  // 柱状图颜色
           tooltip: {},
           series: [{
             name: '用户实时交易量',
-            type: 'bar',
-            data: this.orderUserTrend,
-            barWidth: '60%'
+            type: 'bar',  // 柱状图
+            data: this.orderUserTrend,  // 数据
+            barWidth: '60%'  // 柱状图宽度
           }],
           xAxis: {
             type: 'category',
-            data: this.orderUserTrendAxis,
+            data: this.orderUserTrendAxis,  //滑上去有值 时间
             show: false
           },
           yAxis: {
