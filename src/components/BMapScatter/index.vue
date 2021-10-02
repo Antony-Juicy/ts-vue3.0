@@ -39,8 +39,8 @@
           key: 'G1LFyjrNGIkns5OfpZnrCGAKxpycPLwb',
           bmap: {
             center: [104.114129, 37.550339],
-            zoom: 5,
-            roam: false,
+            zoom: 5,  // 缩放比例
+            roam: false,  // 地图 可以修改位置 移动
             mapStyle: {
               styleJson: [{
                 'featureType': 'water',
@@ -172,7 +172,7 @@
             },
             emphasis: {
               label: {
-                show: true
+                show: true  // 移上 显示信息
               }
             }
           },
@@ -182,7 +182,7 @@
             coordinateSystem: 'bmap',
             data: convertData(data.sort(function (a, b) {
               return b.value - a.value
-            }), geo).slice(0, 10),
+            }), geo).slice(0, 10),   // 前十的数据
             symbolSize: function (val) {
               return val[2] / 10
             },
@@ -196,13 +196,13 @@
               position: 'right',
               show: true
             },
-            hoverAnimation: true,
+            hoverAnimation: true,  // 动画
             rippleEffect: {
-              brushType: 'stroke'
+              brushType: 'stroke'  // 波纹
             },
             itemStyle: {
               color: 'purple',
-              shadowBlur: 10,
+              shadowBlur: 10,  // 阴影
               shadowColor: '#333'
             }
           }

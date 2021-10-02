@@ -27,7 +27,7 @@
               end-placeholder="结束日期"
               size="small"
               unlink-panels
-              :picker-options="pickerOptions"
+              :picker-options="pickerOptions" 
               class="sales-view-date-picker"
             />
           </div>
@@ -63,7 +63,7 @@
         radioSelect: '今日',
         date: null,
         pickerOptions: {
-          shortcuts: [{
+          shortcuts: [{ 
             text: '最近一周',
             onClick(picker) {
               const start = new Date()
@@ -126,7 +126,7 @@
             type: 'category',
             data: axis,
             axisTick: {
-              alignWithLabel: true,
+              alignWithLabel: true,  // x 轴短竖线  从叠一起
               lineStyle: {
                 color: '#999'
               }
@@ -142,14 +142,14 @@
           },
           yAxis: {
             axisLine: {
-              show: false
+              show: false // y 轴线
             },
             axisTick: {
-              show: false
+              show: false  // x 轴线
             },
             splitLine: {
               lineStyle: {
-                type: 'dotted',
+                type: 'dotted',  // 虚线
                 color: '#eee'
               }
             }

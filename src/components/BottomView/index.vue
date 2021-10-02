@@ -146,22 +146,22 @@
           }],
           series: [{
             name: '品类分布',
-            type: 'pie',
+            type: 'pie',  // 饼图s s s s s s
             data: chartData,
             label: {
               normal: {
                 show: true,
-                position: 'outter',
+                position: 'outter', // 显示 内部
                 formatter: function (params) {
-                  return params.data.legendname
+                  return params.data.legendname // 数据
                 }
               }
             },
-            center: ['35%', '50%'],
-            radius: ['45%', '60%'],
+            center: ['35%', '50%'],   // 外半径
+            radius: ['45%', '60%'], //空心 内半径
             labelLine: {
               normal: {
-                length: 5,
+                length: 5, // 文字提示 
                 length2: 3,
                 smooth: true
               }
