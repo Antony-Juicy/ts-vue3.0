@@ -2,6 +2,10 @@ git status  查看文件
 
 git stash save "日志信息"     git stash list    列出所有的暂存项
 
+git stash pop --index 恢复最新的进度到工作区和暂存区。
+
+git stash pop stash@{1}恢复指定的进度到工作区。
+
 git add -A 
 
 git commit .  -n      i (编辑)     退出   esc   ：wq
