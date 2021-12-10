@@ -21,6 +21,8 @@ git rebase upstream/master
 git push origin master
 
 git checkout  分支
+  
+git branch -m gaigaicoming gaigailaile    对分支重命名
 
 git reflog --date=local --all | grep   切换到要查询的分支下要   查询的分支名称
 
