@@ -44,7 +44,8 @@ git merge  分支名           合并某分支到当前分支
 
 git  pull origin   分支名    本地分支关联远程分支
 
-
+git cherry-pick  hash值   想合并某个分支的某一次提交，然后git log, 复制这次提交的hash值，然后切换到目标分支 
+ 
 git stash   可以先储存起来。
 
 git stash list   查看之前存储的所有版本列表
