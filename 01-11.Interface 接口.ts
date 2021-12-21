@@ -1,4 +1,7 @@
 // interface 和 type 相类似，但并不完全一致
+// interface：接口主要用于类型检查，它只是一个结构契约，定义了具有相似的名称和类型的对象结构。除此之外，
+// 接口还可以定义方法和事件,声明两个相同接口会合并，interface extends type
+// type：不同于interface只能定义对象类型，type声明还可以定义基础类型、联合类型或交叉类型。type可以使用typeof获取实例类型 type x = typeof div type y = string & interface yy{x:1}|
 interface Person {
   // readonly name: string;
   ddd: string;
