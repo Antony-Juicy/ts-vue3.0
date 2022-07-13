@@ -12,6 +12,8 @@ git commit .  -n      i (±à¼­)     ÍË³ö   esc   £ºwq
 
 git commit --amend -m "¸üºÃµÄÌá½»ÈÕÖ¾"    ±à¼­ÉÏ´ÎÌá½»
 
+git commit --no-verify Ìø¹ı´úÂë¹æ·¶¼ì²éÌá½»commit
+
 git fetch upstream    À­È¡ upstream ²Ö¿â´úÂëµ½±¾µØ
 
 git checkout master    ÇĞ»»µ½Ä³·ÖÖ§
@@ -24,9 +26,9 @@ git checkout  ·ÖÖ§
   
 git branch -m gaigaicoming gaigailaile    ¶Ô·ÖÖ§ÖØÃüÃû
 
-git reflog --date=local --all | grep   ÇĞ»»µ½Òª²éÑ¯µÄ·ÖÖ§ÏÂÒª   ²éÑ¯µÄ·ÖÖ§Ãû³Æ
+git reflog --date=local --all | grep (²éÑ¯µÄ·ÖÖ§)  ÇĞ»»µ½Òª²éÑ¯µÄ·ÖÖ§ÏÂÒª   ²éÑ¯µÄ·ÖÖ§Ãû³Æ
 
-git checkout -b wsp ´´½¨wsp·ÖÖ§ ²¢ÇÒÇĞ»»µ½Õâ¸ö·ÖÖ§
+git checkout -b £¨·ÖÖ§Ãû³Æwsp£© ´´½¨wsp·ÖÖ§ ²¢ÇÒÇĞ»»µ½Õâ¸ö·ÖÖ§
 
 git rebase master      ½«±¾µØ master ·ÖÖ§×îĞÂ´úÂëºÏ²¢µ½ÒªÌá½» MR µÄ·ÖÖ§
 
@@ -40,9 +42,9 @@ git push origin --delete  ·ÖÖ§Ãû³Æ     É¾³ıÔ¶³Ì·ÖÖ§Ãû³Æ£¨¿É¶à¸ö£©
 
 git  push origin  : ·ÖÖ§Ãû×Ö          É¾³ıÔ¶³Ì·ÖÖ§
 
-git merge  ·ÖÖ§Ãû           ºÏ²¢Ä³·ÖÖ§µ½µ±Ç°·ÖÖ§
+git merge £¨·ÖÖ§Ãû£©    ºÏ²¢Ä³·ÖÖ§µ½µ±Ç°·ÖÖ§
 
-git  pull origin   ·ÖÖ§Ãû    ±¾µØ·ÖÖ§¹ØÁªÔ¶³Ì·ÖÖ§
+git  pull £¨·ÖÖ§Ãû£©    ±¾µØ·ÖÖ§¹ØÁªÔ¶³Ì·ÖÖ§
 
 git cherry-pick  hashÖµ   ÏëºÏ²¢Ä³¸ö·ÖÖ§µÄÄ³Ò»´ÎÌá½»£¬È»ºógit log, ¸´ÖÆÕâ´ÎÌá½»µÄhashÖµ£¬È»ºóÇĞ»»µ½Ä¿±ê·ÖÖ§ 
  
@@ -55,9 +57,7 @@ git stash pop [stash_id]   »Ö¸´¾ßÌåÄ³Ò»´ÎµÄ°æ±¾,Èç¹û²»Ö¸¶¨stash_id£¬ÔòÄ¬ÈÏh»Ö¸´×
 
 git  remote -v  ²é¿´Ô¶³Ì°æ±¾ĞÅÏ¢
 
-git remote remove origin      É¾³ıÔ¶³Ì¹ØÁª²Ö¿â
-
-git remote remove origin      É¾³ıÔ¶³Ì¹ØÁª²Ö¿â
+git remote remove £¨name£©   É¾³ıÔ¶³Ì¹ØÁª²Ö¿â
 
 git log   ²é¿´µ±Ç°ÀúÊ·Çø°æ±¾ĞÅÏ¢
 
@@ -76,11 +76,23 @@ git config --global user.email "wangsp@awcloud.com"
 
 
 
+git remote -v   ²é¿´±¾µØÓĞÃ»ÓĞÉèÖÃÉÏÓÎ²Ö¿â
+
+git remote add upstream£¨Ä¬ÈÏ£© £¨¿É×Ô¼º¸ü»»Ãû×Ö £© http://xxx(ÅÉÉúµÄÔ´Ô¶³Ì²Ö¿âµØÖ·)   Ìí¼ÓÉÏÓÎ²Ö¿â
+
+git fetch upstream£¨¸ü»»Ãû×Ö£© dev   ´ÓÉÏÓÎ²Ö¿âÍ¬²½À­È¡Ö¸¶¨·ÖÖ§µ½±¾µØ
+
+git merge upstream/dev  ºÏ²¢¸Õ´ÓÉÏÓÎ²Ö¿âÀ­È¡µÄ´úÂëµ½µ±Ç°·ÖÖ§ÄÚÈİµ½
+
+git remote rm upstream£¨·ÖÖ§Ãû×Ö£© É¾³ıÔ¶³Ì²Ö¿âÔ´µØÖ·
+
+git checkout -b [±¾µØbranchÃû] [remotename]/[Ô¶³ÌbranchÃû]  Ö§ÓëÔ¶³Ì·ÖÖ§ÉèÖÃÎª²»Í¬Ãû×Ö£¬ÇÒ¹ØÁª³É¹¦£º
+
 git add --all  .   »òÕß(git add .) °ÑËùÓĞÎÄ¼ş¶¼·ÅÔÚÔİ´æÇø
  
 git commit -m "ÎÒÊÇµÚÒ»¸ö°æ±¾"  °ÑÔİ´æÇøµÄÄÚÈİ·Åµ½ÀúÊ·Çø
 
-git remote add origin ²Ö¿âµØÖ· ÀıÈç(https://github.com/guoxiang910223/ceshi1913.git)  Ìí¼Ó²Ö¿âµØÖ·
+git remote add £¨È¡·ÖÖ§Ãû×Ö£© ²Ö¿âµØÖ· ÀıÈç(https://github.com/guoxiang910223/ceshi1913.git)  Ìí¼Ó²Ö¿âµØÖ·
 
 git push -u origin master  ±íÊ¾°ÑÄÚÈİÉÏ´«µ½ origin Õâ¸öµØÖ·    µÚ¶ş´ÎÉÏ´«git push
 
@@ -97,7 +109,6 @@ git config --global user.name "Antony-Juicy"
 git pull --rebase origin master  ´úÂëºÏ²¢
 
 $ git checkout --  ²é¿´³åÍ»µÄ·ÖÖ§
-
 
 
 git branch login  ¿ª±ÙÒ»¸ö login ·ÖÖ§
