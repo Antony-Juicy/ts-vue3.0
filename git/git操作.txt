@@ -135,4 +135,17 @@ git merge login  把 login 的内容合并到自己的分支
   $ git merge tmp
 
 
-  
+
+
+打开命令行 Terminal 终端；
+
+展示：
+defaults write com.apple.finder AppleShowAllFiles TRUE
+
+killall Finder
+
+快捷键：command + shift + .
+
+隐藏：
+defaults write com.apple.finder AppleShowAllFiles FALSE
+killall Finder 
